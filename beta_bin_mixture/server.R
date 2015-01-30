@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
     beta = input$beta
     iteg_c = 1/integrate(posterior, 0, 1, alpha=alpha, beta=beta)$value
     plot(theta,iteg_c*posterior(theta, alpha, beta), type="l")
-    lines(theta, dbeta(x,alpha,beta),col="red")
+    lines(theta, dbeta(theta,alpha,beta),col="red")
     mtext(bquote(list(alpha==.(alpha),beta==.(beta))))
     legend(x=0.8, y = 2.0, legend=c("proir","posterior"), text.col=c("red","black"))
     
